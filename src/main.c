@@ -1,8 +1,23 @@
+/**
+ * main.c — RP2350 ADC self-test. NOTHING needs to be wired.
+ *
+ * Reads the RP2350's built-in temperature sensor, which is wired to the ADC
+ * inside the chip. If you get sensible numbers, the ADC works.
+ *
+ * Serial monitor at 115200. Press a fingertip on the big chip in the middle
+ * of the board and watch the temperature climb.
+ */
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "vision.h"
+#include "hardware/adc.h"
 
-int main(void) {
+#define TEMP_ADC_INPUT  (NUM_ADC_CHANNELS - 1)   /* last ADC input is always the temp sensor */
+#define ADC_VREF        3.3f
+#define ADC_MAX         4095.0f
+#define N_AVG           64
+
+int main(void)
+{
     stdio_init_all();
     sleep_ms(2000);
 
@@ -22,6 +37,4 @@ int main(void) {
         }
         sleep_ms(200);
     }
-
-    return 0;
 }
