@@ -1,8 +1,8 @@
 #pragma once
 
 // Vision
-#define PIN_MLX_SDA 0
-#define PIN_MLX_SCL 1
+#define PIN_MLX_SDA 4
+#define PIN_MLX_SCL 5
 
 // Arm (PWM) - verify each servo is on the right PWM slice/channel
 #define PIN_ARM_SERVO_1 2
