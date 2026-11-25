@@ -9,15 +9,9 @@
  */
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include "hardware/adc.h"
+#include "vision.h"
 
-#define TEMP_ADC_INPUT  (NUM_ADC_CHANNELS - 1)   /* last ADC input is always the temp sensor */
-#define ADC_VREF        3.3f
-#define ADC_MAX         4095.0f
-#define N_AVG           64
-
-int main(void)
-{
+int main(void) {
     stdio_init_all();
     sleep_ms(2000);
 
@@ -37,8 +31,9 @@ int main(void)
         }
         sleep_ms(200);
     }
-}
 
+    return 0;
+}
 
 // ALEX CODE
 /*
